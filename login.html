@@ -15,11 +15,9 @@
             <form id="login-form">
                 <label>Existing Users - Login</label>
                 <br>
-                <input id="email" type="email" name="email" title="email" placeholder="Email" required autofocus>
+                <input id="name" name="name" title="name" placeholder="Name" required autofocus>
                 <input id="password" type="password" name="password" title="password" placeholder="Password" required>
-                <div>
-                    <button type="submit">Login</button>
-                </div>
+                <button class="login_button">Login</button>
             </form>
         </div>
     </div>
@@ -28,19 +26,18 @@
             <form id="create-form">
                 <label>New Users - Create an Account</label>
                 <br>
-                <input id="create-email" type="email" name="email" title="email" placeholder="Email" required autofocus>
-                <input id="create-password" type="password" name="password" title="password" placeholder="Password"
-                    required>
-                <div>
-                    <button type="submit">Login</button>
-                </div>
+                <input id="create-name" name="name" title="name" placeholder="Name" required autofocus>
+                <input id="create-password" type="password" name="password" title="password" placeholder="Password" required>
+                <button class="create_button">Create</button>
             </form>
+            <div id="message"></div>
         </div>
     </div>
 
     <!-- Include links to JavaScript files below -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="script.js"></script>
+    <script src="login_script.js"></script>
+    <script src="node_modules/axios/dist/axios.js"></script>
 </body>
 
 </html>
