@@ -1,0 +1,3 @@
+[submodule "comp426backend"]
+	path = comp426backend
+	url = https://github.com/cgburgess/comp426-backend.git
