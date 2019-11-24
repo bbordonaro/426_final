@@ -18,6 +18,7 @@ async function login() {
 }
 
 async function createAccount() {
+    event.preventDefault();
     const $form = $('#create-form');
     const data = $form.serializeArray().reduce((o, x) => {
         o[x.name] = x.value;
