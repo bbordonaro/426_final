@@ -1,0 +1,109 @@
+body {
+    background-image: url(sky.jpg);
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-align: center;
+}
+
+#title {
+    font-family: 'Cinzel', serif;
+}
+
+h4 {
+    display: inline;
+    font-size: 25px;
+}
+
+#nav_bar {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+}
+
+#title {
+    text-align: left;
+    padding: 10px;
+    margin-bottom: 0px;
+}
+
+#slogan {
+    padding: 10px;
+    font-style: italic;
+}
+
+#right_align {
+    left: 80%;
+    position: relative;
+    transform: translate(0px, -80px);
+}
+
+.profile_button {
+    border: solid black 2px;
+    padding: 5px;
+    width: 125px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#search {
+    width: 200px;
+}
+
+#main {
+    width: 70%;
+    border: 1px gray solid;
+    margin: auto;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+#header {
+    margin-top: 150px;
+    border: 2px solid black;
+    padding: 5px;
+    height: 250px;
+    line-height: 200px;
+}
+
+.option {
+    border: 2px solid black;
+    width: 400px;
+    height: 200px;
+    margin: 1px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    padding: 5px;
+    text-align: center;
+    display: inline-block;
+    line-height: 150px;
+}
+
+.a {
+    background-color: fuchsia;
+}
+
+.b {
+    background-color: purple;
+}
+
+.c {
+    background-color: pink;
+}
+
+.d {
+    background-color: peachpuff;
+}
+
+label {
+    width: 150px;
+    display: inline-block;
+}
+
+button {
+    display: block;
+    margin-top: 20px;
+}
+
