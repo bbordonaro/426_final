@@ -1,4 +1,15 @@
 var jwt = getUrlVars().jwt;
+var map;
+
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: {
+            lat: 0,
+            lng: 0
+        },
+        zoom: 2
+    });
+}
 
 async function login() {
     event.preventDefault();
@@ -66,6 +77,13 @@ const loadPage = function () {
     $('.index_button').on("click", function () {
         window.location.href = "index.html?jwt=" + jwt;
     });
+
+    if (document.querySelectorAll('#map').length > 0) {
+        var js_file = document.createElement('script');
+        js_file.type = 'text/javascript';
+        js_file.src = 'https://maps.googleapis.com/maps/api/js?callback=initMap&key=AIzaSyC3aifUfdZHFzieQOo96mftM4hGZ3E8BpM';
+        document.getElementsByTagName('body')[0].appendChild(js_file);
+    }
 }
 
 function getUrlVars() {
