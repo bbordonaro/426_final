@@ -88,3 +88,7 @@ a>#profile_button {
     height: 100px;
     color: antiquewhite;
 }
+
+#map{
+    height: 100%;
+}
