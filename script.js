@@ -1,8 +1,8 @@
-let jwt = getURLVars().jwt;
+var jwt = getUrlVars().jwt;
 
 async function login() {
-    $("#message").empty();
     event.preventDefault();
+    $(`#message`).empty();
     const $form = $('#login-form');
     const data = $form.serializeArray().reduce((o, x) => {
         o[x.name] = x.value;
@@ -17,23 +17,24 @@ async function login() {
                 "pass": data.password,
             }
         }).then(x => {
-            $("#message").append("Successfully logged in");
+            $(`#message`).append("Login successful.");
             jwt = x.data.jwt;
             window.location.href = "index.html?jwt=" + jwt;
         });
     } catch (error) {
-        $("#message").append("Error logging in, check username and password and try again");
-    }
+        $(`#message`).append("Username or password incorrect.");
+    };
 }
 
 async function createAccount() {
-    $("#message").empty();
     event.preventDefault();
+    $(`#message`).empty();
     const $form = $('#create-form');
     const data = $form.serializeArray().reduce((o, x) => {
         o[x.name] = x.value;
         return o;
     }, {});
+
     try {
         const result = await axios({
             method: 'post',
@@ -42,12 +43,12 @@ async function createAccount() {
                 "name": data.name,
                 "pass": data.password
             }
-        }).then(x => {
-            $("#message").append("Account created");
+
         });
     } catch (error) {
-        $("#message").append("Username taken");
+        $(`#message`).append("Username already taken.")
     }
+
 }
 
 const loadPage = function () {
@@ -62,13 +63,13 @@ const loadPage = function () {
     $('.map').on("click", function () {
         window.location.href = "map.html?jwt=" + jwt;
     });
-    $('.home').on("click", function () {
+    $('.index_button').on("click", function () {
         window.location.href = "index.html?jwt=" + jwt;
     });
 }
 
-function getURLVars() {
-    let vars = {};
+function getUrlVars() {
+    var vars = {};
     var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
         vars[key] = value;
     });
