@@ -38,7 +38,7 @@ h4 {
     transform: translate(0px, -80px);
 }
 
-#profile_button {
+.profile_button {
     border: solid black 2px;
     padding: 5px;
     width: 125px;
@@ -57,7 +57,7 @@ h4 {
     font-size: 20px;
 }
 
-#quiz_link {
+.quiz_link {
     float: left;
     width: 25%;
     margin-top: 200px;
@@ -78,7 +78,7 @@ a>#profile_button {
     color: black;
 }
 
-#map {
+.map {
     float: left;
     width: 25%;
     margin-top: 200px;
