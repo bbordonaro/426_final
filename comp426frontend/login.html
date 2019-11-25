@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login to Hex Girls Travel Site</title>
+
+</head>
+
+<body>
+    <div id="login">
+        <div>
+            <form id="login-form">
+                <label>Existing Users - Login</label>
+                <br>
+                <input id="name" name="name" title="name" placeholder="Name" required autofocus>
+                <input id="password" type="password" name="password" title="password" placeholder="Password" required>
+                <button class="login_button">Login</button>
+            </form>
+        </div>
+    </div>
+    <div id="create">
+        <div>
+            <form id="create-form">
+                <label>New Users - Create an Account</label>
+                <br>
+                <input id="create-name" name="name" title="name" placeholder="Name" required autofocus>
+                <input id="create-password" type="password" name="password" title="password" placeholder="Password"
+                    required>
+                <button class="create_button">Create</button>
+            </form>
+            <div id="message"></div>
+        </div>
+        <button class="index_button">Back to Home</button>
+    </div>
+
+
+    <!-- Include links to JavaScript files below -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="node_modules/axios/dist/axios.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "426_final-master",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "browser-sync": "^2.26.7",
+    "esm": "^3.2.25",
+    "jquery": "^3.4.1"
+  }
+}
