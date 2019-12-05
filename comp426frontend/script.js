@@ -122,18 +122,18 @@ const loadPage = function () {
     }
 
     //get the updated ranks and display 
-    if (jwt != "undefined") {
-        async function displayRanks() {
-            await axios({
-                method: 'get',
-                url: 'http://localhost:3000/private/locations',
-            }).then(x => {
-                x.data.result
+    // if (jwt != "undefined") {
+    //     async function displayRanks() {
+    //         await axios({
+    //             method: 'get',
+    //             url: 'http://localhost:3000/private/locations',
+    //         }).then(x => {
+    //             x.data.result
 
-            });
-        }
-        displayRanks();
-    }
+    //         });
+    //     }
+    //     displayRanks();
+    // }
 }
 
 function getUrlVars() {
