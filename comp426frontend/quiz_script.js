@@ -1,3 +1,13 @@
+var jwt = getUrlVars().jwt;
+
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+
 const renderQuestion = function (q) {
     return `
     <div class="question"><p>${q.question}</p>
@@ -8,7 +18,6 @@ const renderQuestion = function (q) {
 };
 
 const getResults = function (choices) {
-    //count number of each letter
     var counts = {
         a: 0,
         b: 0,
@@ -98,7 +107,9 @@ $(function () {
     });
 
     form.append(`<div id = "quiz_submit">Submit</div>`);
+
     $("#quiz_submit").on("click", function () {
+        $("#quiz_message").empty();
         var count = 0;
         for (var question in choices) {
             if (choices[question] == "z") {
@@ -106,9 +117,26 @@ $(function () {
             }
         }
         if (count != 0) {
-            $("#main").append(`You need to answer ${count} more questions!`);
+            $("#quiz_message").append(`You need to answer ${count} more questions!`);
         } else {
-            getResults(choices);
+            event.target.remove();
+            $("#quiz_message").empty();
+            var category_obj = getResults(choices);
+            var cat = category_obj.category;
+            var places = [category_obj.places[1], category_obj.places[2], category_obj.places[3]];
+            $("#main").append(`
+                <div id="results">
+                    <h2>You got a(n) ${cat} vacation!</h2>
+                    <p><span class =  "location">${places[0].name}:</span>   ${places[0].description}</p>
+                    <p><span class =  "location">${places[1].name}:</span>   ${places[1].description}</p>
+                    <p><span class =  "location">${places[2].name}:</span>   ${places[2].description}</p>
+                </div>
+                <button id="to_map">See Your Results on the Map!</button>
+            
+            `);
+            $('#to_map').on("click", function () {
+                window.location.href = "map.html?jwt=" + jwt;
+            });
         }
     });
 });

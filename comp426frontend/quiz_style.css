@@ -94,8 +94,17 @@ label {
     display: inline-block;
 }
 
-button {
+#quiz_submit {
     display: block;
     margin-top: 20px;
+    border: 2px solid black;
+    width: 100px;
+    text-align: center;
+    transform: translate(445px, 0px);
+}
+
+.location {
+    font-weight: bolder;
+    font-size: 20px;
 }
 
