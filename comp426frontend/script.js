@@ -20,13 +20,73 @@ async function initMap() {
                     'Authorization': 'Bearer ' + jwt
                 }
             }).then(y => {
-                let points = y.data.result;
-                for (let i = 0; i < 5; i++) {
-                    new google.maps.Marker({
-                        position: points[i],
-                        map: map
-                    });
-                }
+                let heading1 = $("<h1></h1>").append(y.data.result.places[1].name);
+                let body1 = $("<p></p>").append(y.data.result.places[1].description);
+                let content1 =
+                    '<div id="content">' + '<div id="siteNotice">' +
+                    '</div>' + y.data.result.places[1].name +
+                    '<div id="bodyContent">' + '<p>' +
+                    y.data.result.places[1].description + '</p>' +
+                    '</div>' +
+                    '</div>';
+                let point1 = y.data.result.places[1].point;
+                let infowindow1 = new google.maps.InfoWindow({
+                    content: content1
+                });
+                let marker1 = new google.maps.Marker({
+                    position: point1,
+                    map: map,
+                });
+                marker1.addListener(
+                    'click',
+                    function () {
+                        infowindow1.open(map, marker1);
+                    }
+                );
+
+                let content2 =
+                    '<div id="content">' + '<div id="siteNotice">' +
+                    '</div>' + y.data.result.places[2].name +
+                    '<div id="bodyContent">' + '<p>' +
+                    y.data.result.places[2].description + '</p>' +
+                    '</div>' +
+                    '</div>';
+                let point2 = y.data.result.places[2].point;
+                let infowindow2 = new google.maps.InfoWindow({
+                    content: content2
+                });
+                let marker2 = new google.maps.Marker({
+                    position: point2,
+                    map: map,
+                });
+                marker2.addListener(
+                    'click',
+                    function () {
+                        infowindow2.open(map, marker2);
+                    }
+                );
+
+                let content3 =
+                    '<div id="content">' + '<div id="siteNotice">' +
+                    '</div>' + y.data.result.places[3].name +
+                    '<div id="bodyContent">' + '<p>' +
+                    y.data.result.places[3].description + '</p>' +
+                    '</div>' +
+                    '</div>';
+                let point3 = y.data.result.places[3].point;
+                let infowindow3 = new google.maps.InfoWindow({
+                    content: content3
+                });
+                let marker3 = new google.maps.Marker({
+                    position: point3,
+                    map: map,
+                });
+                marker3.addListener(
+                    'click',
+                    function () {
+                        infowindow3.open(map, marker3);
+                    }
+                );
             });
         }
         getPoints();
@@ -122,18 +182,18 @@ const loadPage = function () {
     }
 
     //get the updated ranks and display 
-    // if (jwt != "undefined") {
-    //     async function displayRanks() {
-    //         await axios({
-    //             method: 'get',
-    //             url: 'http://localhost:3000/private/locations',
-    //         }).then(x => {
-    //             x.data.result
+    /*if (jwt != "undefined") {
+        async function displayRanks() {
+            await axios({
+                method: 'get',
+                url: 'http://localhost:3000/private/locations',
+            }).then(x => {
+                x.data.result
 
-    //         });
-    //     }
-    //     displayRanks();
-    // }
+            });
+        }
+        displayRanks();
+    }*/
 }
 
 function getUrlVars() {
