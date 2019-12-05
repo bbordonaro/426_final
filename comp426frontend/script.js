@@ -12,28 +12,10 @@ async function initMap() {
 
     //get the user 
     if (jwt != "undefined") {
-
-        async function setPoints() {
-            await axios({
-                method: 'post',
-                url: 'http://localhost:3000/user/points',
-                headers: {
-                    'Authorization': 'Bearer ' + jwt
-                },
-                data: {
-                    "data": [{
-                        lat: -25.344,
-                        lng: 131.036
-                    }],
-                },
-                "type": "merge"
-            });
-        }
-        setPoints();
         async function getPoints() {
             await axios({
                 method: 'get',
-                url: 'http://localhost:3000/user/points',
+                url: 'http://localhost:3000/user/results',
                 headers: {
                     'Authorization': 'Bearer ' + jwt
                 }
