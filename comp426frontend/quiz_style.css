@@ -81,20 +81,12 @@ h4 {
     line-height: 150px;
 }
 
-.a {
-    background-color: fuchsia;
+.option:active {
+    background-color: grey;
 }
 
-.b {
-    background-color: purple;
-}
-
-.c {
-    background-color: pink;
-}
-
-.d {
-    background-color: peachpuff;
+.a, .b, .c, .d {
+    background-color: lightblue;
 }
 
 label {
