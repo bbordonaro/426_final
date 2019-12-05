@@ -21,9 +21,9 @@ async function initMap() {
                 }
             }).then(y => {
                 let content1 =
-                    '<div id="content">' + '<div id="siteNotice">' +
+                    '<div id="markercontent">' + '<div id="siteNotice">' +
                     '</div>' + y.data.result.places[1].name +
-                    '<div id="bodyContent">' + '<p>' +
+                    '<div id="markerbodyContent">' + '<p>' +
                     y.data.result.places[1].description + '</p>' +
                     '</div>' +
                     '</div>';
@@ -47,9 +47,9 @@ async function initMap() {
                 );
 
                 let content2 =
-                    '<div id="content">' + '<div id="siteNotice">' +
+                    '<div id="markercontent">' + '<div id="siteNotice">' +
                     '</div>' + y.data.result.places[2].name +
-                    '<div id="bodyContent">' + '<p>' +
+                    '<div id="markerbodyContent">' + '<p>' +
                     y.data.result.places[2].description + '</p>' +
                     '</div>' +
                     '</div>';
@@ -73,9 +73,9 @@ async function initMap() {
                 );
 
                 let content3 =
-                    '<div id="content">' + '<div id="siteNotice">' +
+                    '<div id="markercontent">' + '<div id="siteNotice">' +
                     '</div>' + y.data.result.places[3].name +
-                    '<div id="bodyContent">' + '<p>' +
+                    '<div id="markerbodyContent">' + '<p>' +
                     y.data.result.places[3].description + '</p>' +
                     '</div>' +
                     '</div>';
@@ -182,6 +182,9 @@ const loadPage = function () {
     });
     $('.index_button').on("click", function () {
         window.location.href = "index.html?jwt=" + jwt;
+    });
+    $('.quiz_button').on("click", function () {
+        window.location.href = "quiz.html?jwt=" + jwt;
     });
 
     if (document.querySelectorAll('#map').length > 0) {
