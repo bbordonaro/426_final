@@ -1,7 +1,7 @@
 var jwt = getUrlVars().jwt;
 var map;
 
-function initMap() {
+async function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {
             lat: 0,
@@ -9,6 +9,46 @@ function initMap() {
         },
         zoom: 2
     });
+
+    //get the user 
+    if (jwt != "undefined") {
+
+        async function setPoints() {
+            await axios({
+                method: 'post',
+                url: 'http://localhost:3000/user/points',
+                headers: {
+                    'Authorization': 'Bearer ' + jwt
+                },
+                data: {
+                    "data": [{
+                        lat: -25.344,
+                        lng: 131.036
+                    }],
+                },
+                "type": "merge"
+            });
+        }
+        setPoints();
+        async function getPoints() {
+            await axios({
+                method: 'get',
+                url: 'http://localhost:3000/user/points',
+                headers: {
+                    'Authorization': 'Bearer ' + jwt
+                }
+            }).then(y => {
+                let points = y.data.result;
+                for (let i = 0; i < 5; i++) {
+                    new google.maps.Marker({
+                        position: points[i],
+                        map: map
+                    });
+                }
+            });
+        }
+        getPoints();
+    }
 }
 
 async function login() {
@@ -46,6 +86,10 @@ async function createAccount() {
         return o;
     }, {});
 
+    var now = new Date();
+    (now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':' +
+        ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now.getSeconds()) : (now.getSeconds()));
+
     try {
         const result = await axios({
             method: 'post',
@@ -53,9 +97,19 @@ async function createAccount() {
             data: {
                 "name": data.name,
                 "pass": data.password,
+                "data": {
+                    "timestamp": now
+                }
             }
-        }).then(x => {
-            $('#message').append("Account successfully created.");
+        }).then(function () {
+            $('#message').append("Account successfully created on " + now);
+
+            //read the current user number 
+
+            //delete the user number 
+
+            //add 1 to the user number and store it back in public 
+
         });
     } catch (error) {
         $(`#message`).append("Username already taken.");
@@ -83,6 +137,20 @@ const loadPage = function () {
         js_file.type = 'text/javascript';
         js_file.src = 'https://maps.googleapis.com/maps/api/js?callback=initMap&key=AIzaSyC3aifUfdZHFzieQOo96mftM4hGZ3E8BpM';
         document.getElementsByTagName('body')[0].appendChild(js_file);
+    }
+
+    //get the updated ranks and display 
+    if (jwt != "undefined") {
+        async function displayRanks() {
+            await axios({
+                method: 'get',
+                url: 'http://localhost:3000/private/locations',
+            }).then(x => {
+                x.data.result
+
+            });
+        }
+        displayRanks();
     }
 }
 
