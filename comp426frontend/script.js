@@ -20,12 +20,10 @@ async function initMap() {
                     'Authorization': 'Bearer ' + jwt
                 }
             }).then(y => {
-                let heading1 = $("<h1></h1>").append(y.data.result.places[1].name);
-                let body1 = $("<p></p>").append(y.data.result.places[1].description);
                 let content1 =
-                    '<div id="content">' + '<div id="siteNotice">' +
+                    '<div id="markercontent">' + '<div id="siteNotice">' +
                     '</div>' + y.data.result.places[1].name +
-                    '<div id="bodyContent">' + '<p>' +
+                    '<div id="markerbodyContent">' + '<p>' +
                     y.data.result.places[1].description + '</p>' +
                     '</div>' +
                     '</div>';
@@ -36,6 +34,10 @@ async function initMap() {
                 let marker1 = new google.maps.Marker({
                     position: point1,
                     map: map,
+                    animation: google.maps.Animation.DROP,
+                    icon: {
+                        url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+                    }
                 });
                 marker1.addListener(
                     'click',
@@ -45,9 +47,9 @@ async function initMap() {
                 );
 
                 let content2 =
-                    '<div id="content">' + '<div id="siteNotice">' +
+                    '<div id="markercontent">' + '<div id="siteNotice">' +
                     '</div>' + y.data.result.places[2].name +
-                    '<div id="bodyContent">' + '<p>' +
+                    '<div id="markerbodyContent">' + '<p>' +
                     y.data.result.places[2].description + '</p>' +
                     '</div>' +
                     '</div>';
@@ -58,6 +60,10 @@ async function initMap() {
                 let marker2 = new google.maps.Marker({
                     position: point2,
                     map: map,
+                    animation: google.maps.Animation.DROP,
+                    icon: {
+                        url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+                    }
                 });
                 marker2.addListener(
                     'click',
@@ -67,9 +73,9 @@ async function initMap() {
                 );
 
                 let content3 =
-                    '<div id="content">' + '<div id="siteNotice">' +
+                    '<div id="markercontent">' + '<div id="siteNotice">' +
                     '</div>' + y.data.result.places[3].name +
-                    '<div id="bodyContent">' + '<p>' +
+                    '<div id="markerbodyContent">' + '<p>' +
                     y.data.result.places[3].description + '</p>' +
                     '</div>' +
                     '</div>';
@@ -80,6 +86,10 @@ async function initMap() {
                 let marker3 = new google.maps.Marker({
                     position: point3,
                     map: map,
+                    animation: google.maps.Animation.DROP,
+                    icon: {
+                        url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+                    }
                 });
                 marker3.addListener(
                     'click',
@@ -172,6 +182,9 @@ const loadPage = function () {
     });
     $('.index_button').on("click", function () {
         window.location.href = "index.html?jwt=" + jwt;
+    });
+    $('.quiz_button').on("click", function () {
+        window.location.href = "quiz.html?jwt=" + jwt;
     });
 
     if (document.querySelectorAll('#map').length > 0) {
