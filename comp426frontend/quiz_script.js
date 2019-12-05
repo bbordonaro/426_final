@@ -67,64 +67,92 @@ const getResults = function (choices) {
 
 $(function () {
     const form = $('#form1');
-
-    for (let i = 0; i < quiz.length; i++) {
-        let temp = renderQuestion(quiz[i]);
-        form.append(temp);
-    }
-
-    var choices = {
-        1: "z",
-        2: "z",
-        3: "z",
-        4: "z",
-        5: "z",
-        6: "z",
-        7: "z",
-        8: "z",
-        9: "z",
-        10: "z",
-    };
-
-    $('.option').on("click", function () {
-        var choice = event.target;
-        var classes = choice.className.split(/\s+/);
-        var question_clicked = classes[2];
-        var letter = classes[1];
-        var question = quiz[question_clicked - 1];
-        choices[question_clicked] = letter;
-        var options = document.getElementsByClassName(question_clicked);
-        for (let i = 0; i < 4; i++) {
-            let x = options[i];
-            let temp = x.className.split(/\s+/)[1];
-            if (temp != letter) {
-                x.style.backgroundColor = "lightblue";
-            } else {
-                x.style.backgroundColor = "grey";
+    if (jwt == "undefined") {
+        form.append(`<div id="alert">Please login or create an account to take our travel quiz!</div>`);
+        form.append(`<div class="profile_button">Login or Create an Account</div>`);
+        $(".profile_button").on("click", function () {
+            window.location.href = "login.html?jwt=" + jwt
+        });
+    } else {
+        //check if quiz results exist
+        async function checkResults() {
+            try {
+                const result = await axios({
+                    method: 'get',
+                    url: 'http://localhost:3000/user/results',
+                    headers: {
+                        'Authorization': 'Bearer ' + jwt
+                    }
+                });
+                return true;
+            } catch (error) {
+                return false;
             }
         }
-
-    });
-
-    form.append(`<div id = "quiz_submit">Submit</div>`);
-
-    $("#quiz_submit").on("click", function () {
-        $("#quiz_message").empty();
-        var count = 0;
-        for (var question in choices) {
-            if (choices[question] == "z") {
-                count++;
+        checkResults().then( result => {
+            if(result == true) {
+                $("#quiz_message").append(`Warning: You already have saved quiz results. Re-submitting will re-write your results.`);
             }
+        });
+       
+
+        for (let i = 0; i < quiz.length; i++) {
+            let temp = renderQuestion(quiz[i]);
+            form.append(temp);
         }
-        if (count != 0) {
-            $("#quiz_message").append(`You need to answer ${count} more questions!`);
-        } else {
-            event.target.remove();
+
+        var choices = {
+            1: "z",
+            2: "z",
+            3: "z",
+            4: "z",
+            5: "z",
+            6: "z",
+            7: "z",
+            8: "z",
+            9: "z",
+            10: "z",
+        };
+
+        $('.option').on("click", function () {
+            var choice = event.target;
+            var classes = choice.className.split(/\s+/);
+            var question_clicked = classes[2];
+            var letter = classes[1];
+            var question = quiz[question_clicked - 1];
+            choices[question_clicked] = letter;
+            var options = document.getElementsByClassName(question_clicked);
+            for (let i = 0; i < 4; i++) {
+                let x = options[i];
+                let temp = x.className.split(/\s+/)[1];
+                if (temp != letter) {
+                    x.style.backgroundColor = "lightblue";
+                } else {
+                    x.style.backgroundColor = "grey";
+                }
+            }
+
+        });
+
+        form.append(`<div id = "quiz_submit">Submit</div>`);
+
+        $("#quiz_submit").on("click", function () {
             $("#quiz_message").empty();
-            var category_obj = getResults(choices);
-            var cat = category_obj.category;
-            var places = [category_obj.places[1], category_obj.places[2], category_obj.places[3]];
-            $("#main").append(`
+            var count = 0;
+            for (var question in choices) {
+                if (choices[question] == "z") {
+                    count++;
+                }
+            }
+            if (count != 0) {
+                $("#quiz_message").append(`You need to answer ${count} more questions!`);
+            } else {
+                event.target.remove();
+                $("#quiz_message").empty();
+                var category_obj = getResults(choices);
+                var cat = category_obj.category;
+                var places = [category_obj.places[1], category_obj.places[2], category_obj.places[3]];
+                $("#main").append(`
                 <div id="results">
                     <h2>You got a(n) ${cat} vacation!</h2>
                     <p><span class =  "location">${places[0].name}:</span>   ${places[0].description}</p>
@@ -134,9 +162,10 @@ $(function () {
                 <button id="to_map">See Your Results on the Map!</button>
             
             `);
-            $('#to_map').on("click", function () {
-                window.location.href = "map.html?jwt=" + jwt;
-            });
-        }
-    });
+                $('#to_map').on("click", function () {
+                    window.location.href = "map.html?jwt=" + jwt;
+                });
+            }
+        });
+    }
 });
