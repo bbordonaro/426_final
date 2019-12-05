@@ -158,10 +158,47 @@ async function createAccount() {
 
             //read the current user number 
 
-            //delete the user number 
-
-            //add 1 to the user number and store it back in public 
-
+            async function readCurrent() {
+                try {
+                    let result = await axios({
+                        method: 'get',
+                        url: 'http://localhost:3000/public/users',
+                    });
+                    let newCount = result.data.result + 1;
+                    console.log(newCount);
+                    //delete the user number 
+                    async function deletePublic() {
+                        await axios({
+                            method: 'delete',
+                            url: 'http://localhost:3000/public/users',
+                        });
+                    }
+                    deletePublic();
+                    //update to new count
+                    async function updateCount() {
+                        await axios({
+                            method: 'post',
+                            url: 'http://localhost:3000/public/users',
+                            data: {
+                                "data": newCount
+                            }
+                        });
+                    }
+                    updateCount();
+                } catch (error) {
+                    async function createCount() {
+                        await axios({
+                            method: 'post',
+                            url: 'http://localhost:3000/public/users',
+                            data: {
+                                "data": 1
+                            }
+                        });
+                    }
+                    createCount();
+                }
+            }
+            readCurrent();
         });
     } catch (error) {
         $(`#message`).append("Username already taken.");
@@ -195,18 +232,27 @@ const loadPage = function () {
     }
 
     //get the updated ranks and display 
-    /*if (jwt != "undefined") {
+    if (jwt != "undefined") {
         async function displayRanks() {
             await axios({
                 method: 'get',
-                url: 'http://localhost:3000/private/locations',
+                url: 'http://localhost:3000/private/places',
             }).then(x => {
-                x.data.result
-
+                let rankDiv = $("#ranks");
+                let places = x.data.result;
+                places.sort(function () {
+                    return a.count - b.count;
+                });
+                for (let i = 0; i < 10; x++) {
+                    let place = $("<div></div");
+                    place.append(places[i].name);
+                    place.append(places[i].count);
+                    rankDiv.append(place);
+                }
             });
         }
         displayRanks();
-    }*/
+    }
 }
 
 function getUrlVars() {
