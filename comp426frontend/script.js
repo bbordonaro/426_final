@@ -2,12 +2,13 @@ var jwt = getUrlVars().jwt;
 var map;
 
 async function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('map2'), {
         center: {
             lat: 0,
             lng: 0
         },
-        zoom: 2
+        zoom: 2,
+        scrollwheel: false,
     });
 
     //get the user 
@@ -223,13 +224,19 @@ const loadPage = function () {
     $('.quiz_button').on("click", function () {
         window.location.href = "quiz.html?jwt=" + jwt;
     });
+    $('#title').on("click", function () {
+        window.location.href = "index.html?jwt=" + jwt;
+    });
 
-    if (document.querySelectorAll('#map').length > 0) {
+    if (document.querySelectorAll('#map2').length > 0) {
         var js_file = document.createElement('script');
         js_file.type = 'text/javascript';
         js_file.src = 'https://maps.googleapis.com/maps/api/js?callback=initMap&key=AIzaSyC3aifUfdZHFzieQOo96mftM4hGZ3E8BpM';
         document.getElementsByTagName('body')[0].appendChild(js_file);
     }
+
+    let rankDiv = $("#ranks");
+    rankDiv.append("Log in to see the top trending vacation spots!");
 
     //get the updated ranks and display 
     if (jwt != "undefined") {
@@ -237,22 +244,40 @@ const loadPage = function () {
             await axios({
                 method: 'get',
                 url: 'http://localhost:3000/private/places',
+                headers: {
+                    'Authorization': 'Bearer ' + jwt
+                }
             }).then(x => {
-                let rankDiv = $("#ranks");
+                rankDiv.empty();
+                let title = $("<div></div>").attr("id", "rankTitle").append("Here are the top 5 locations our users have discovered so far:");
+                rankDiv.append(title);
                 let places = x.data.result;
-                places.sort(function () {
-                    return a.count - b.count;
-                });
-                for (let i = 0; i < 10; x++) {
+                let placesArray = Object.entries(places);
+                let count = 1;
+                for (let i = 11; i > 6; i--) {
                     let place = $("<div></div");
-                    place.append(places[i].name);
-                    place.append(places[i].count);
+                    place.append(count + ". " + placesArray[i][0] + ": ");
+                    place.append(placesArray[i][1] + " users");
                     rankDiv.append(place);
+                    count++;
                 }
             });
         }
         displayRanks();
     }
+
+    async function getUsers() {
+        try {
+            let result = await axios({
+                method: 'get',
+                url: 'http://localhost:3000/public/users',
+            });
+            $("#userCount").append("Join the " + result.data.result + " users who have found great destinations with Hex Girls Travel Agency!");
+        } catch (error) {
+
+        }
+    }
+    getUsers();
 }
 
 function getUrlVars() {

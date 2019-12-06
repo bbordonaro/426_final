@@ -62,6 +62,62 @@ const getResults = function (choices) {
         });
     }
     setPlace();
+
+    //adding places to running count of places
+    for (let i = 1; i < 4; i++) {
+        async function addPlace() {
+            let target = place.places[i].name;
+            try {
+                await axios({
+                    method: 'get',
+                    url: 'http://localhost:3000/private/places/' + target,
+                    headers: {
+                        'Authorization': 'Bearer ' + jwt
+                    }
+                }).then(x => {
+                    let newCount = x.data.result + 1;
+                    async function deleteCount() {
+                        await axios({
+                            method: 'delete',
+                            url: 'http://localhost:3000/private/places/' + target,
+                            headers: {
+                                'Authorization': 'Bearer ' + jwt
+                            }
+                        });
+                    }
+                    deleteCount();
+
+                    async function updateCount() {
+                        await axios({
+                            method: 'post',
+                            url: 'http://localhost:3000/private/places/' + target,
+                            headers: {
+                                'Authorization': 'Bearer ' + jwt
+                            },
+                            data: {
+                                "data": newCount
+                            }
+                        });
+                    }
+                    updateCount();
+                });
+
+            } catch (error) {
+                await axios({
+                    method: 'post',
+                    url: 'http://localhost:3000/private/places/' + target,
+                    headers: {
+                        'Authorization': 'Bearer ' + jwt
+                    },
+                    data: {
+                        "data": 1
+                    }
+                });
+            }
+        }
+        addPlace();
+    }
+
     return place;
 };
 
@@ -89,12 +145,12 @@ $(function () {
                 return false;
             }
         }
-        checkResults().then( result => {
-            if(result == true) {
+        checkResults().then(result => {
+            if (result == true) {
                 $("#quiz_message").append(`Warning: You already have saved quiz results. Re-submitting will re-write your results.`);
             }
         });
-       
+
 
         for (let i = 0; i < quiz.length; i++) {
             let temp = renderQuestion(quiz[i]);

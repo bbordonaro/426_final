@@ -7,9 +7,12 @@
     font-size: 15px;
 }
 
-#map {
-    height: 80%;
+#map2 {
+    height: 70%;
     width: 100%;
-    margin-top: 11%;
-    margin-left: 0;
+    margin-top: 2%;
+}
+
+#buttons {
+    margin-top: 18%;
 }
