@@ -1,3 +1,7 @@
+// make submit different for each location, home, quiz, map, etc.
+
+// map needs to be only visible by logged in users - is quiz taken needed?
+
 const handleSearchSubmit = function() {
     let place = $("#search")[0].value;
     window.location.href = "search.html?jwt=" + jwt;
