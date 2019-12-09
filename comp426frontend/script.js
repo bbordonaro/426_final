@@ -215,7 +215,21 @@ const loadPage = function () {
     if (jwt != undefined && jwt != "undefined") {
         $('.profile_button').empty();
         $('.profile_button').unbind("click", loginPage);
-        $('.profile_button').append("Log Out");
+
+        //get logged in username
+        async function getUser() {
+            await axios({
+                method: 'get',
+                url: 'http://localhost:3000/account/status',
+                headers: {
+                    'Authorization': 'Bearer ' + jwt
+                }
+            }).then(x => {
+                $("#profileStatus").append("Hello, " + x.data.user.name + "!");
+                $('.profile_button').append("Log Out");
+            })
+        }
+        getUser();
         $('.profile_button').on("click", function () {
             jwt = "undefined";
             window.location.href = "index.html?jwt=" + jwt;
