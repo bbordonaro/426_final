@@ -212,7 +212,7 @@ const loadPage = function () {
     $('.login_button').on("click", login);
     $('.profile_button').on("click", loginPage);
 
-    if (jwt != "undefined") {
+    if (jwt != undefined && jwt != "undefined") {
         $('.profile_button').empty();
         $('.profile_button').unbind("click", loginPage);
         $('.profile_button').append("Log Out");
@@ -249,7 +249,7 @@ const loadPage = function () {
     rankDiv.append("Log in to see the top trending vacation spots!");
 
     //get the updated ranks and display 
-    if (jwt != "undefined") {
+    if (jwt != undefined && jwt != "undefined") {
         async function displayRanks() {
             try {
                 await axios({
