@@ -15,6 +15,10 @@ var location_list = [
     "Delhi, India"
 ];
 
+const handleSearchSubmit = function() {
+    console.log("YOOOOO!");
+};
+
 $(function () {
     var n = location_list.length; 
 
@@ -32,27 +36,7 @@ $(function () {
                 document.getElementById("datalist").appendChild(node);
             }
         }
-    };
+    }
 
-    function debounce(func, wait, immediate) {
-        var timeout;
-      
-        return function executedFunction() {
-          var context = this;
-          var args = arguments;
-              
-          var later = function() {
-            timeout = null;
-            if (!immediate) func.apply(context, args);
-          };
-      
-          var callNow = immediate && !timeout;
-          
-          clearTimeout(timeout);
-      
-          timeout = setTimeout(later, wait);
-          
-          if (callNow) func.apply(context, args);
-        };
-      };
+      $("#search_button").on("click", handleSearchSubmit);
 });

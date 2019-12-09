@@ -18,9 +18,10 @@
         <div id="right_align">
             <button class="profile_button">Sign in or Sign up</button> </br>
 
-            <input type="text" list="datalist" onkeyup="debounce(ac(this.value), 1000, false)" name="search" id="search" list="location_list">
+            <!-- onkeyup="debounce(ac(this.value), 5000, false)" -->
+
+            <input type="text" list="datalist" name="search" id="search" list="location_list">
             <button id="search_button">Search</button>
-            <!-- On keyup calls the function everytime a key is released -->
             <datalist id="datalist">
                 <option value="Quiz"></option>
                 <option value="Map"></option>
@@ -52,7 +53,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="script.js"></script>
     <script src="node_modules/axios/dist/axios.js"></script>
-    <script src="search.js"></script>
+    <!-- <script src="search.js"></script> -->
 </body>
 
 </html>
