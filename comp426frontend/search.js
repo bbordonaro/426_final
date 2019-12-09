@@ -1,31 +1,3 @@
-var jwt = getUrlVars().jwt;
-
-function getUrlVars() {
-    var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
-        vars[key] = value;
-    });
-    return vars;
-}
-
-var location_list = [
-    "Home",
-    "Map",
-    "Quiz",
-    "Maldives",
-    "Kaua'i, Hawaii, U.S.A",
-    "Port Douglas, Australia",
-    "Moab, Utah, U.S.A.",
-    "Patagonia, South America",
-    "Iceland",
-    "Greece",
-    "Petra, Jordan",
-    "Machu Picchu, Peru",
-    "London, England",
-    "Tuscany, Italy",
-    "Delhi, India"
-];
-
 const handleSearchSubmit = function() {
     let place = $("#search")[0].value;
     window.location.href = "search.html?jwt=" + jwt;
@@ -50,5 +22,4 @@ function ac(value) {
 $(function () {
     $("#search")[0].value = "";
     $("#search_button").on("click", handleSearchSubmit);
-
 });

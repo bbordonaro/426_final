@@ -16,11 +16,31 @@
         <h1 id="title">Hex Girls Travel Agency</h1>
         <h4 id="slogan">"We can change your whole direction."</h4>
         <div id="right_align">
-            <button class="profile_button">Sign in or Sign up</button>
-            <div id="search_bar">
-                <label>Search</label>
-                <input id="search" value="Explore destinations"></input>
+            <div id="profileStuff">
+                <div id="profileStatus"></div>
+                <button class="profile_button">Sign in or Sign up</button>
+                </br>
             </div>
+
+            <input type="text" list="datalist" name="search" onkeyup="ac(this.value)" id="search" list="location_list">
+            <button id="search_button">Search</button>
+            <datalist id="datalist">
+                <option value="Home"></option>
+                <option value="Quiz"></option>
+                <option value="Map"></option>
+                <option value="Maldives"></option>
+                <option value="Kaua'i, Hawaii, U.S.A"></option>
+                <option value="Port Douglas, Australia"></option>
+                <option value="Moab, Utah, U.S.A."></option>
+                <option value="Patagonia, South America"></option>
+                <option value="Iceland"></option>
+                <option value="Greece"></option>
+                <option value="Petra, Jordan"></option>
+                <option value="Machu Picchu, Peru"></option>
+                <option value="London, England"></option>
+                <option value="Tuscany, Italy"></option>
+                <option value="Delhi, India"></option>
+            </datalist>
         </div>
     </div>
 
@@ -34,11 +54,14 @@
     </div>
 
     <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/axios/dist/axios.js"></script>
     <script src="questions.js"></script>
     <script src="quiz_script.js"></script>
     <script src="script.js"></script>
     <script src="results.js"></script>
-    <script src="node_modules/axios/dist/axios.js"></script>
+    <script src="search.js"></script>
+    <script src="location_list.js"></script>
+    
 </body>
 
 </html>
