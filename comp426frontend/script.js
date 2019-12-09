@@ -206,12 +206,29 @@ async function createAccount() {
     };
 }
 
+const loginPage = function () {
+    window.location.href = "login.html?jwt=" + jwt;
+}
+
 const loadPage = function () {
+    if (window.location.href == "http://localhost:3001/index.html") {
+        window.location.href = "index.html?jwt=" + jwt;
+    }
+
     $('.create_button').on("click", createAccount);
     $('.login_button').on("click", login);
-    $('.profile_button').on("click", function () {
-        window.location.href = "login.html?jwt=" + jwt;
-    });
+    $('.profile_button').on("click", loginPage);
+
+    if (jwt != "undefined") {
+        $('.profile_button').empty();
+        $('.profile_button').unbind("click", loginPage);
+        $('.profile_button').append("Log Out");
+        $('.profile_button').on("click", function () {
+            jwt = "undefined";
+            window.location.href = "index.html?jwt=" + jwt;
+        });
+    }
+
     $('.quiz_link').on("click", function () {
         window.location.href = "quiz.html?jwt=" + jwt;
     });

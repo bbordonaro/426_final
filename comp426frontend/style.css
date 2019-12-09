@@ -106,3 +106,7 @@ a>#profile_button {
     width: 320px;
     font-weight: bolder;
 }
+
+#login {
+    margin-top: 15%;
+}
