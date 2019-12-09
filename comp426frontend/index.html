@@ -11,16 +11,15 @@
 </head>
 
 <body>
-
+    
     <div id="nav_bar">
         <h1 id="title">Hex Girls Travel Agency</h1>
         <h4 id="slogan">"We can change your whole direction."</h4>
         <div id="right_align">
             <button class="profile_button">Sign in or Sign up</button> </br>
 
-            <input type="text" list="datalist" onkeyup="debounce(ac(this.value), 1000, false)" name="search" id="search" list="location_list">
+            <input type="text" list="datalist" name="search" onkeyup="ac(this.value)" id="search" list="location_list">
             <button id="search_button">Search</button>
-            <!-- On keyup calls the function everytime a key is released -->
             <datalist id="datalist">
                 <option value="Quiz"></option>
                 <option value="Map"></option>
@@ -36,7 +35,7 @@
                 <option value="London, England"></option>
                 <option value="Tuscany, Italy"></option>
                 <option value="Delhi, India"></option>
-            </datalist> 
+            </datalist>
         </div>
     </div>
 
@@ -48,11 +47,12 @@
     </div>
 
     <div id="ranks"></div>
-    <!-- Include links to JavaScript files below -->
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="script.js"></script>
     <script src="node_modules/axios/dist/axios.js"></script>
-    <script src="search.js"></script>
+    <script type="text/javascript" src="search.js"></script>
+
 </body>
 
 </html>

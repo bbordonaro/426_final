@@ -1,3 +1,13 @@
+var jwt = getUrlVars().jwt;
+
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+
 var location_list = [
     "Map",
     "Quiz",
@@ -15,44 +25,28 @@ var location_list = [
     "Delhi, India"
 ];
 
-$(function () {
-    var n = location_list.length; 
+const handleSearchSubmit = function() {
+    let place = $("#search")[0].value;
+    window.location.href = "search.html?jwt=" + jwt;
+};
 
-    function ac(value) {
-        document.getElementById('datalist').innerHTML = '';
+function ac(value) {
+    document.getElementById('datalist').innerHTML = '';
 
-        var l = value.length;
-        for (var i = 0; i < n; i++) {
-            if (((tags[i].toLowerCase()).indexOf(value.toLowerCase())) > -1) {
+    var l = value.length;
+    for (var i = 0; i < 14; i++) {
+        if (((location_list[i].toLowerCase()).indexOf(value.toLowerCase())) > -1) {
 
-                var node = document.createElement("option");
-                var val = document.createTextNode(tags[i]);
-                node.appendChild(val);
+            var node = document.createElement("option");
+            var val = document.createTextNode(location_list[i]);
+            node.appendChild(val);
 
-                document.getElementById("datalist").appendChild(node);
-            }
+            document.getElementById("datalist").appendChild(node);
         }
-    };
+    }
+}
 
-    function debounce(func, wait, immediate) {
-        var timeout;
-      
-        return function executedFunction() {
-          var context = this;
-          var args = arguments;
-              
-          var later = function() {
-            timeout = null;
-            if (!immediate) func.apply(context, args);
-          };
-      
-          var callNow = immediate && !timeout;
-          
-          clearTimeout(timeout);
-      
-          timeout = setTimeout(later, wait);
-          
-          if (callNow) func.apply(context, args);
-        };
-      };
+$(function () {
+    $("#search")[0].value = "";
+    $("#search_button").on("click", handleSearchSubmit);
 });
