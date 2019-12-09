@@ -9,6 +9,7 @@ function getUrlVars() {
 }
 
 var location_list = [
+    "Home",
     "Map",
     "Quiz",
     "Maldives",
@@ -34,7 +35,7 @@ function ac(value) {
     document.getElementById('datalist').innerHTML = '';
 
     var l = value.length;
-    for (var i = 0; i < 14; i++) {
+    for (var i = 0; i < location_list.length; i++) {
         if (((location_list[i].toLowerCase()).indexOf(value.toLowerCase())) > -1) {
 
             var node = document.createElement("option");
@@ -49,4 +50,5 @@ function ac(value) {
 $(function () {
     $("#search")[0].value = "";
     $("#search_button").on("click", handleSearchSubmit);
+
 });
