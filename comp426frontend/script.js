@@ -167,23 +167,16 @@ async function createAccount() {
                     });
                     let newCount = result.data.result + 1;
                     console.log(newCount);
-                    //delete the user number 
-                    async function deletePublic() {
-                        await axios({
-                            method: 'delete',
-                            url: 'http://localhost:3000/public/users',
-                        });
-                    }
-                    deletePublic();
                     //update to new count
                     async function updateCount() {
-                        await axios({
+                        const result2 = await axios({
                             method: 'post',
                             url: 'http://localhost:3000/public/users',
                             data: {
                                 "data": newCount
                             }
                         });
+                        console.log(result2.data);
                     }
                     updateCount();
                 } catch (error) {
@@ -211,7 +204,7 @@ const loginPage = function () {
 }
 
 const loadPage = function () {
-    if (window.location.href == "http://localhost:3001/index.html") {
+    if (window.location.href == "http://localhost:3001") {
         window.location.href = "index.html?jwt=" + jwt;
     }
 
@@ -258,27 +251,31 @@ const loadPage = function () {
     //get the updated ranks and display 
     if (jwt != "undefined") {
         async function displayRanks() {
-            await axios({
-                method: 'get',
-                url: 'http://localhost:3000/private/places',
-                headers: {
-                    'Authorization': 'Bearer ' + jwt
-                }
-            }).then(x => {
-                rankDiv.empty();
-                let title = $("<div></div>").attr("id", "rankTitle").append("Here are the top 5 locations our users have discovered so far:");
-                rankDiv.append(title);
-                let places = x.data.result;
-                let placesArray = Object.entries(places);
-                let count = 1;
-                for (let i = 11; i > 6; i--) {
-                    let place = $("<div></div");
-                    place.append(count + ". " + placesArray[i][0] + ": ");
-                    place.append(placesArray[i][1] + " users");
-                    rankDiv.append(place);
-                    count++;
-                }
-            });
+            try {
+                await axios({
+                    method: 'get',
+                    url: 'http://localhost:3000/private/places',
+                    headers: {
+                        'Authorization': 'Bearer ' + jwt
+                    }
+                }).then(x => {
+                    rankDiv.empty();
+                    let title = $("<div></div>").attr("id", "rankTitle").append("Here are the top 5 locations our users have discovered so far:");
+                    rankDiv.append(title);
+                    let places = x.data.result;
+                    let placesArray = Object.entries(places);
+                    let count = 1;
+                    for (let i = 11; i > 6; i--) {
+                        let place = $("<div></div");
+                        place.append(count + ". " + placesArray[i][0] + ": ");
+                        place.append(placesArray[i][1] + " users");
+                        rankDiv.append(place);
+                        count++;
+                    }
+                });
+            } catch (error) {
+                rankDiv.append("No one has taken our travel quiz yet! Be the first user!");
+            }
         }
         displayRanks();
     }
@@ -291,7 +288,7 @@ const loadPage = function () {
             });
             $("#userCount").append("Join the " + result.data.result + " users who have found great destinations with Hex Girls Travel Agency!");
         } catch (error) {
-
+            $("#userCount").append("No users yet, be our first and create an account!");
         }
     }
     getUsers();
