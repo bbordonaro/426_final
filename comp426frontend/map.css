@@ -1,10 +1,13 @@
 #markercontent {
-    color: black;
+    color: rgb(36, 122, 250);
+    font-size: 20px;
+    font-weight: bolder;
 }
 
 #markerbodyContent {
     color: black;
     font-size: 15px;
+    font-weight: lighter;
 }
 
 #map2 {
@@ -13,6 +16,13 @@
     margin-top: 2%;
 }
 
-#buttons {
-    margin-top: 18%;
+.index_button,
+.quiz_button {
+    margin-top: 15%;
+    border: solid rgba(0, 0, 255, .5) 2px;
+    padding: 5px;
+    width: 125px;
+    text-align: center;
+    background-color: rgb(255, 255, 255, .5);
+    color: rgba(0, 0, 0);
 }
