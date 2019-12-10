@@ -7,15 +7,17 @@ const results = [{
             point: {
                 lat: 3.2028,
                 lng: 73.2207
-            }
+            },
+            img: "Maldives.jpg"
         },
         2: {
-            name: "Kaua'i, Hawaii, U.S.A",
+            name: "Kauai, Hawaii, U.S.A",
             description: "This island of Hawaii is covered by a tropical rainforest teeming with wildlife and beautiful plants to discover.",
             point: {
                 lat: 22.0964,
                 lng: -159.5261
-            }
+            },
+            img: "Hawaii.jpg"
         },
         3: {
             name: "Port Douglas, Australia",
@@ -23,7 +25,8 @@ const results = [{
             point: {
                 lat: -16.4836,
                 lng: 145.4653
-            }
+            },
+            img: "Australia.jpg"
         }
     }
 }, {
@@ -35,7 +38,8 @@ const results = [{
             point: {
                 lat: 38.5733,
                 lng: -109.5498
-            }
+            },
+            img: "Moab.jpg"
         },
         2: {
             name: "Patagonia, South America",
@@ -43,15 +47,17 @@ const results = [{
             point: {
                 lat: -41.8101,
                 lng: -68.9063
-            }
+            },
+            img: "Patagonia.jpg"
         },
         3: {
             name: "Iceland",
-            description: "Visit geothermal pools, fijords, glaciers, and volcanoes on this huge island in the Atlantic.",
+            description: "Visit geothermal pools, fjords, glaciers, and volcanoes on this huge island in the Atlantic.",
             point: {
                 lat: 64.9631,
                 lng: -19.0208
-            }
+            },
+            img: "Iceland.jpg"
         }
     }
 }, {
@@ -63,7 +69,8 @@ const results = [{
             point: {
                 lat: 37.9838,
                 lng: 23.7275
-            }
+            },
+            img: "Greece.jpg"
         },
         2: {
             name: "Petra, Jordan",
@@ -71,7 +78,8 @@ const results = [{
             point: {
                 lat: 30.328960,
                 lng: 35.444832
-            }
+            },
+            img: "Petra.jpg"
         },
         3: {
             name: "Machu Picchu, Peru",
@@ -79,7 +87,8 @@ const results = [{
             point: {
                 lat: -13.1631,
                 lng: -72.5450
-            }
+            },
+            img: "Machu.jpg"
         }
     }
 }, {
@@ -91,7 +100,8 @@ const results = [{
             point: {
                 lat: 51.5074,
                 lng: -0.1278
-            }
+            },
+            img: "London.jpg"
         },
         2: {
             name: "Tuscany, Italy",
@@ -99,7 +109,8 @@ const results = [{
             point: {
                 lat: 43.7711,
                 lng: 11.2486
-            }
+            },
+            img: "Tuscany.jpg"
         },
         3: {
             name: "Delhi, India",
@@ -107,7 +118,8 @@ const results = [{
             point: {
                 lat: 28.7041,
                 lng: 77.1025
-            }
+            },
+            img: "Delhi.jpg"
         }
     }
 }]

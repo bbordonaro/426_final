@@ -4,7 +4,15 @@
 
 const handleSearchSubmit = function() {
     let place = $("#search")[0].value;
-    window.location.href = "search.html?jwt=" + jwt;
+    if(place == "Home"){
+        window.location.href = "index.html?jwt=" + jwt;
+    } else if(place == "Map") {
+        window.location.href = "map.html?jwt=" + jwt;
+    } else if(place == "Quiz"){
+        window.location.href = "quiz.html?jwt=" + jwt;
+    } else {
+        window.location.href = "search.html?jwt=" + jwt;
+    }
 };
 
 function ac(value) {

@@ -3,7 +3,7 @@ var location_list = [
     "Map",
     "Quiz",
     "Maldives",
-    "Kaua'i, Hawaii, U.S.A",
+    "Kauai, Hawaii, U.S.A",
     "Port Douglas, Australia",
     "Moab, Utah, U.S.A.",
     "Patagonia, South America",

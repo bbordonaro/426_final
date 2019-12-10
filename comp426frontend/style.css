@@ -110,3 +110,31 @@ a>#profile_button {
 #login {
     margin-top: 15%;
 }
+
+#locations_div {
+    margin-left: 13%;
+    margin-top: 150px;
+    text-align: center;
+    width: 1050px;
+    color: white;
+}
+
+.location_card {
+    border: 1px solid white;
+    background-color: black;
+}
+
+.card_title {
+    font-size: 40px;
+    margin-bottom: 3px;
+    margin-top: 30px;
+
+}
+
+.card_des {
+    font-size: 20px;
+}
+
+.card_pic {
+    margin-bottom: 25px;
+}
