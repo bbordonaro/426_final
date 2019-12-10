@@ -34,6 +34,7 @@ $(function () {
         }
         var temp = renderLocationInfo(location_list[i], results_location);
         $root.append(temp);
+        
     }
 
 });
