@@ -4,6 +4,7 @@
 
 const handleSearchSubmit = function () {
 
+    let place = $("#search")[0].value;
     if (place == "Home") {
         window.location.href = "index.html?jwt=" + jwt;
     } else if (place == "Map") {
