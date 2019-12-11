@@ -129,13 +129,6 @@ async function initMap() {
     }
 }
 
-const clickedWindow = function () {
-    //var place = event.target.closest("#nameTag").value;
-    console.log("CLICKED");
-    //window.location.href = "search.html?jwt=" + jwt + "&place=" + place;
-}
-
-
 async function login() {
     event.preventDefault();
     $(`#message`).empty();
@@ -249,7 +242,11 @@ async function createAccount() {
             autoLogin();
         });
     } catch (error) {
-        $(`#message`).append("Username already taken.");
+        if (data.name.length >= 1 && data.password.length >= 1) {
+            $(`#message`).append("Username already taken.");
+        } else {
+            $(`#message`).append("Please fill out both name and password");
+        }
     };
 }
 
