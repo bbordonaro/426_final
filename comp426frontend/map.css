@@ -17,15 +17,27 @@
     margin-top: 2%;
 }
 
-.index_button,
-.quiz_button {
-    margin-top: 15%;
-    border: solid black 2px;
-    padding: 5px;
-    width: 125px;
+#buttons {
     text-align: center;
-    background-color: rgb(255, 255, 255, .5);
-    color: rgba(0, 0, 0);
+}
+
+.quiz_button {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+    padding: 11px 25px;
+    background-color: white;
+    border: 1px solid black;
+    text-transform: uppercase;
+    color: black;
+    font-weight: 600;
+    letter-spacing: 1px;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    margin-left: 20px;
+    width: 250px;
 }
 
 .learnMore {

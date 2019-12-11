@@ -1,28 +1,80 @@
-#login{
+#login {
+    padding: 10px;
+    color: black;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.login_button {
+    border-radius: 25px;
+    padding: 6px 15px;
+    background-color: white;
+    border: 1px solid black;
+    text-transform: uppercase;
+    color: black;
     font-weight: 600;
-    padding-bottom: 20px;
+    letter-spacing: 1px;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    margin-left: 20px;
+    width: 100px;
 }
 
-.login_button{
-
+#name,
+#create-name,
+#password,
+#create-password {
+    height: 20px;
+    width: 150px;
+    margin-top: 10px;
+    border: solid black 1px;
 }
 
-#create{
+#create {
+    padding: 10px;
+    color: black;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.create_button {
+    border-radius: 25px;
+    padding: 6px 15px;
+    background-color: white;
+    border: 1px solid black;
+    text-transform: uppercase;
+    color: black;
     font-weight: 600;
-    padding-bottom: 20px; 
+    letter-spacing: 1px;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    margin-left: 20px;
+    width: 100px;
 }
 
-.create_button{
-    
+#loginContainer {
+    border: solid white 4px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 600px;
+    height: 250px;
+    margin-top: 70px;
+    padding-top: 20px;
 }
 
-.index_button{
+.index_button {
+    margin-top: 20px;
     border-radius: 25px;
     padding: 11px 25px;
-    background-color: transparent;
-    border: 2px solid white;
+    background-color: white;
+    border: 1px solid black;
     text-transform: uppercase;
-    color:white;
+    color: black;
     font-weight: 600;
     letter-spacing: 1px;
     -webkit-transition: all 0.3s ease 0s;

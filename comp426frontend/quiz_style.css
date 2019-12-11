@@ -1,37 +1,27 @@
-body {
-    background-image: url(sky.jpg);
-    font-family: 'Open Sans Condensed', sans-serif;
-    text-align: center;
-}
-
 #alert {
     font-size: 30px;
     margin-bottom: 20px;
     margin-top: 20px;
 }
 
-#title {
-    font-family: 'Cinzel', serif;
-}
-
-h4 {
-    display: inline;
-    font-size: 25px;
-}
-
 #main {
+    text-align: center;
     width: 70%;
     border: 1px gray solid;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10%;
     padding: 10px;
     background-color: white;
     border-radius: 10px;
 }
 
+#quiz_message {
+    color: black;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
 #header {
-    margin-top: 150px;
     border: 2px solid black;
     padding: 5px;
     height: 250px;
@@ -49,6 +39,10 @@ h4 {
     text-align: center;
     display: inline-block;
     line-height: 150px;
+    vertical-align: middle;
+    color: black;
+    font-size: 20px;
+    font-weight: bolder;
 }
 
 .a,
@@ -63,17 +57,45 @@ label {
     display: inline-block;
 }
 
+#to_map {
+    border-radius: 25px;
+    padding: 9px 20px;
+    background-color: white;
+    border: 1px solid black;
+    text-transform: uppercase;
+    color: black;
+    font-weight: 600;
+    letter-spacing: 1px;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    margin-left: 20px;
+    width: 200px;
+}
+
 #quiz_submit {
     display: block;
     margin-top: 20px;
     border: 2px solid black;
     width: 100px;
     text-align: center;
-    transform: translate(445px, 0px);
-}
-
-#quiz_submit:active {
-    background-color: grey;
+    transform: translate(350px, 0px);
+    border-radius: 25px;
+    padding: 9px 20px;
+    background-color: white;
+    border: 1px solid black;
+    text-transform: uppercase;
+    color: black;
+    font-weight: 600;
+    letter-spacing: 1px;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    margin-left: 20px;
+    width: 100px;
+    margin-bottom: 5px;
 }
 
 .location {
@@ -81,42 +103,10 @@ label {
     font-size: 20px;
 }
 
-#nav_bar {
-    background-color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 150px;
-}
-
-#title {
-    text-align: left;
-    padding: 10px;
-    margin-bottom: 0px;
-}
-
-#slogan {
-    padding: 10px;
-    font-style: italic;
-}
-
-#right_align {
-    left: 80%;
-    position: relative;
-    transform: translate(0px, -80px);
-}
-
-.profile_button {
-    border: solid black 2px;
-    padding: 5px;
-    width: 125px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-#search {
-    width: 200px;
+.question {
+    color: black;
+    font-size: 20px;
+    font-weight: bolder;
 }
 
 #deleteQuizButton {
