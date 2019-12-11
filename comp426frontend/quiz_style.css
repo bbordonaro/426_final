@@ -122,3 +122,9 @@ label {
 #search {
     width: 200px;
 }
+
+#deleteQuizButton {
+    border: solid black 2px;
+    padding: 5px;
+    text-align: center;
+}

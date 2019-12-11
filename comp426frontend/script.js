@@ -168,7 +168,7 @@ async function createAccount() {
         }).then(function () {
             $('#message').append("Account successfully created on " + now);
 
-            //read the current user number 
+            //updating user number 
 
             async function readCurrent() {
                 try {
@@ -204,6 +204,28 @@ async function createAccount() {
                 }
             }
             readCurrent();
+
+
+            //auto log in 
+            async function autoLogin() {
+                try {
+                    const result = await axios({
+                        method: 'post',
+                        url: 'http://localhost:3000/account/login',
+                        data: {
+                            "name": data.name,
+                            "pass": data.password,
+                        }
+                    }).then(x => {
+                        $(`#message`).append("Login successful.");
+                        jwt = x.data.jwt;
+                        window.location.href = "index.html?jwt=" + jwt;
+                    });
+                } catch (error) {
+
+                }
+            }
+            autoLogin();
         });
     } catch (error) {
         $(`#message`).append("Username already taken.");
@@ -289,8 +311,11 @@ const loadPage = function () {
                     rankDiv.append(title);
                     let places = x.data.result;
                     let placesArray = Object.entries(places);
+                    placesArray.sort(function (a, b) {
+                        return b[1] - a[1];
+                    });
                     let count = 1;
-                    for (let i = 11; i > 6; i--) {
+                    for (let i = 0; i < 6; i++) {
                         let place = $("<div></div");
                         place.append(count + ". " + placesArray[i][0] + ": ");
                         place.append(placesArray[i][1] + " users");
