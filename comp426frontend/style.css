@@ -13,8 +13,6 @@ h4 {
 }
 
 #nav_bar {
-    background-color: white;
-    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -26,11 +24,13 @@ h4 {
     text-align: left;
     padding: 10px;
     margin-bottom: 0px;
+    color: white;
 }
 
 #slogan {
     padding: 10px;
     font-style: italic;
+    color:white;
 }
 
 #right_align {
@@ -40,15 +40,23 @@ h4 {
 }
 
 .profile_button {
-    border: solid black 2px;
-    padding: 5px;
-    width: 125px;
-    text-align: center;
-    margin-bottom: 20px;
+    border-radius: 25px;
+    padding: 11px 25px;
+    background-color: transparent;
+    border: 2px solid white;
+    text-transform: uppercase;
+    color:white;
+    font-weight: 600;
+    letter-spacing: 1px;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
 }
 
 #search {
     width: 200px;
+    margin-top: 20px;
 }
 
 #content {
@@ -58,13 +66,18 @@ h4 {
 }
 
 .quiz_link {
-    width: 25%;
-    background-color: black;
-    opacity: 50%;
-    height: 100px;
-    margin-left: auto;
-    color: antiquewhite;
-    font-size: 20px;
+    border-radius: 25px;
+    padding: 11px 25px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 1px;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
 }
 
 a>content {
@@ -76,13 +89,18 @@ a>#profile_button {
 }
 
 .map {
-    width: 25%;
-    background-color: black;
-    opacity: 50%;
-    height: 100px;
-    margin-right: auto;
-    color: antiquewhite;
-    font-size: 20px;
+    border-radius: 25px;
+    padding: 11px 25px;
+    background-color: transparent;
+    border: 2px solid white;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1px;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
 }
 
 #userCount {
