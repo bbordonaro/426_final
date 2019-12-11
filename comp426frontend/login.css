@@ -1,0 +1,32 @@
+#login{
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+
+.login_button{
+
+}
+
+#create{
+    font-weight: 600;
+    padding-bottom: 20px; 
+}
+
+.create_button{
+    
+}
+
+.index_button{
+    border-radius: 25px;
+    padding: 11px 25px;
+    background-color: transparent;
+    border: 2px solid white;
+    text-transform: uppercase;
+    color:white;
+    font-weight: 600;
+    letter-spacing: 1px;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
