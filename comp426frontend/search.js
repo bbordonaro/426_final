@@ -2,16 +2,16 @@
 
 // map needs to be only visible by logged in users - is quiz taken needed?
 
-const handleSearchSubmit = function() {
-    let place = $("#search")[0].value;
-    if(place == "Home"){
+const handleSearchSubmit = function () {
+
+    if (place == "Home") {
         window.location.href = "index.html?jwt=" + jwt;
-    } else if(place == "Map") {
+    } else if (place == "Map") {
         window.location.href = "map.html?jwt=" + jwt;
-    } else if(place == "Quiz"){
+    } else if (place == "Quiz") {
         window.location.href = "quiz.html?jwt=" + jwt;
     } else {
-        window.location.href = "search.html?jwt=" + jwt;
+        window.location.href = "search.html?jwt=" + jwt + "&place=" + place;
     }
 };
 

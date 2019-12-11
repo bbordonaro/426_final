@@ -22,7 +22,9 @@ h4 {
 #main {
     width: 70%;
     border: 1px gray solid;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
     padding: 10px;
     background-color: white;
     border-radius: 10px;
@@ -49,7 +51,10 @@ h4 {
     line-height: 150px;
 }
 
-.a, .b, .c, .d {
+.a,
+.b,
+.c,
+.d {
     background-color: lightblue;
 }
 

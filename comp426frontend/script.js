@@ -22,11 +22,7 @@ async function initMap() {
                 }
             }).then(y => {
                 let content1 =
-                    '<div id="markercontent">' + '<div id="siteNotice">' +
-                    '</div>' + y.data.result.places[1].name +
-                    '<div id="markerbodyContent">' + '<p>' +
-                    y.data.result.places[1].description + '</p>' +
-                    '</div>' +
+                    '<div class="markercontent">' + y.data.result.places[1].name + "<p class='markerP'>Click this blue marker again for more info!</p>" +
                     '</div>';
                 let point1 = y.data.result.places[1].point;
                 let infowindow1 = new google.maps.InfoWindow({
@@ -40,19 +36,20 @@ async function initMap() {
                         url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
                     }
                 });
-                marker1.addListener(
-                    'click',
-                    function () {
-                        infowindow1.open(map, marker1);
-                    }
-                );
+                marker1.addListener('click', openWindow1);
+
+                function openWindow1() {
+                    infowindow1.open(map, marker1);
+                    google.maps.event.clearInstanceListeners(marker1);
+                    marker1.addListener('click', newPage1);
+                }
+
+                function newPage1() {
+                    window.location.href = "search.html?jwt=" + jwt + "&place=" + y.data.result.places[1].name;
+                }
 
                 let content2 =
-                    '<div id="markercontent">' + '<div id="siteNotice">' +
-                    '</div>' + y.data.result.places[2].name +
-                    '<div id="markerbodyContent">' + '<p>' +
-                    y.data.result.places[2].description + '</p>' +
-                    '</div>' +
+                    '<div class="markercontent">' + y.data.result.places[2].name + "<p class='markerP'>Click this blue marker again for more info!</p>" +
                     '</div>';
                 let point2 = y.data.result.places[2].point;
                 let infowindow2 = new google.maps.InfoWindow({
@@ -66,19 +63,20 @@ async function initMap() {
                         url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
                     }
                 });
-                marker2.addListener(
-                    'click',
-                    function () {
-                        infowindow2.open(map, marker2);
-                    }
-                );
+                marker2.addListener('click', openWindow2);
+
+                function openWindow2() {
+                    infowindow2.open(map, marker2);
+                    google.maps.event.clearInstanceListeners(marker2);
+                    marker2.addListener('click', newPage2);
+                }
+
+                function newPage2() {
+                    window.location.href = "search.html?jwt=" + jwt + "&place=" + y.data.result.places[2].name;
+                }
 
                 let content3 =
-                    '<div id="markercontent">' + '<div id="siteNotice">' +
-                    '</div>' + y.data.result.places[3].name +
-                    '<div id="markerbodyContent">' + '<p>' +
-                    y.data.result.places[3].description + '</p>' +
-                    '</div>' +
+                    '<div class="markercontent">' + y.data.result.places[3].name + "<p class='markerP'>Click this blue marker again for more info!</p>" +
                     '</div>';
                 let point3 = y.data.result.places[3].point;
                 let infowindow3 = new google.maps.InfoWindow({
@@ -92,17 +90,30 @@ async function initMap() {
                         url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
                     }
                 });
-                marker3.addListener(
-                    'click',
-                    function () {
-                        infowindow3.open(map, marker3);
-                    }
-                );
+                marker3.addListener('click', openWindow3);
+
+                function openWindow3() {
+                    infowindow3.open(map, marker3);
+                    google.maps.event.clearInstanceListeners(marker3);
+                    marker3.addListener('click', newPage3);
+                }
+
+                function newPage3() {
+                    window.location.href = "search.html?jwt=" + jwt + "&place=" + y.data.result.places[3].name;
+                }
+
             });
         }
         getPoints();
     }
 }
+
+const clickedWindow = function () {
+    //var place = event.target.closest("#nameTag").value;
+    console.log("CLICKED");
+    //window.location.href = "search.html?jwt=" + jwt + "&place=" + place;
+}
+
 
 async function login() {
     event.preventDefault();
