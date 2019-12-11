@@ -18,6 +18,7 @@ const renderQuestion = function (q) {
 };
 
 const getResults = function (choices) {
+    
     var counts = {
         a: 0,
         b: 0,
@@ -39,13 +40,14 @@ const getResults = function (choices) {
     var result = Object.keys(counts).reduce((a, b) => counts[a] > counts[b] ? a : b);
     var place;
     if (result == "a") {
-        place = results[0];
-    } else if (result == "b") {
-        place = results[1];
-    } else if (result == "c") {
         place = results[2];
-    } else {
+        console.log(place);
+    } else if (result == "b") {
         place = results[3];
+    } else if (result == "c") {
+        place = results[1];
+    } else {
+        place = results[0];
     }
 
     async function setPlace() {
