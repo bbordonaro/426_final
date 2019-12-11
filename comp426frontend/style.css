@@ -58,24 +58,8 @@ h4 {
     text-align: center;
 }
 
-#content {
-    text-align: center;
-    color: white;
-    margin-top: 5%;
-}
-
 .quiz_link {
-    width: 25%;
-    background-color: black;
-    opacity: 50%;
-    height: 100px;
-    margin-left: auto;
-    color: antiquewhite;
-    font-size: 20px;
-}
-
-a>content {
-    color: antiquewhite;
+    display:inline-block;
 }
 
 a>#profile_button {
@@ -83,36 +67,18 @@ a>#profile_button {
 }
 
 .map {
-    width: 25%;
-    background-color: black;
-    opacity: 50%;
-    height: 100px;
-    margin-right: auto;
-    color: antiquewhite;
-    font-size: 20px;
+    display:inline-block;
 }
 
 #userCount {
-    color: black;
-    font-weight: bolder;
-    background-color: white;
-    opacity: 60%;
-    margin-top: 20%;
-    width: 415px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 3%;
+    background-color: lightgrey;
+    width: 200px;
+    margin-bottom: 10px;
 }
 
 #ranks {
-    margin-top: 5%;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: white;
-    opacity: 60%;
-    padding: 5%;
-    width: 320px;
-    font-weight: bolder;
+    background-color: lightgrey;
+    width: 200px;
 }
 
 #login {
@@ -145,4 +111,22 @@ a>#profile_button {
 
 .card_pic {
     margin-bottom: 25px;
+}
+
+#page_left {
+    text-align: left;
+    display: inline-block;
+    margin-top: 150px;
+    border: 5px solid yellow;
+}
+
+#page_center {
+    text-align: right;
+    background-image: url("plane.png");
+    text-align: center;
+    color: white;
+    width: 1000px;
+    height: 345px;
+    display: inline-block;
+    border: 5px solid purple;
 }
