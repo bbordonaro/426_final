@@ -20,7 +20,7 @@
 .index_button,
 .quiz_button {
     margin-top: 15%;
-    border: solid rgba(0, 0, 255, .5) 2px;
+    border: solid black 2px;
     padding: 5px;
     width: 125px;
     text-align: center;
