@@ -289,8 +289,11 @@ const loadPage = function () {
                     rankDiv.append(title);
                     let places = x.data.result;
                     let placesArray = Object.entries(places);
+                    placesArray.sort(function (a, b) {
+                        return b[1] - a[1];
+                    });
                     let count = 1;
-                    for (let i = 11; i > 6; i--) {
+                    for (let i = 0; i < 6; i++) {
                         let place = $("<div></div");
                         place.append(count + ". " + placesArray[i][0] + ": ");
                         place.append(placesArray[i][1] + " users");
